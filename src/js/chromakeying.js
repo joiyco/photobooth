@@ -86,7 +86,8 @@ function setMainImage(imgSrc) {
     } else {
         const image = new Image();
         image.src = imgSrc;
-        mainImageWidth = image.width;
+        image.onload = function () {
+	mainImageWidth = image.width;
         mainImageHeight = image.height;
 
         // create tmpcanvas and size it to image size
@@ -106,6 +107,9 @@ function setMainImage(imgSrc) {
         chroma = seriously.effect('chroma');
         chroma.source = seriouslyimage;
         target.source = chroma;
+	const r = 98 / 255;
+	const g = 175 / 255;
+	const b = 116 / 255;
         seriously.go();
         mainImage = new Image();
         mainImage.src = tmpCanvas.toDataURL('image/png');
@@ -113,7 +117,9 @@ function setMainImage(imgSrc) {
         mainImage.onload = function () {
             drawCanvas();
         };
-    }
+      };
+      image.src = imgSrc;
+   }
 }
 
 // eslint-disable-next-line no-unused-vars
