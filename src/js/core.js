@@ -474,6 +474,7 @@ const photoBooth = (function () {
                         $('.loading').append($('<a class="btn" style="margin-left:2px" href="./">').text(abortmsg));
                     }
                 } else if (result.success === 'chroma') {
+                    chromaFile = result.file;
                     api.processPic(data.style, result);
                 } else {
                     currentCollageFile = '';
@@ -884,14 +885,6 @@ const photoBooth = (function () {
 
         api.thrill('photo');
         $('.newpic').blur();
-    });
-
-    // Take Chroma Button
-    $('.takeChroma, .newchroma').on('click', function (e) {
-        e.preventDefault();
-
-        api.thrill('chroma');
-        $('.takeChroma').blur();
     });
 
     // Take Collage Button
