@@ -192,8 +192,8 @@ function saveImage(cb) {
             takingPic = false;
             needsReload = true;
             if (config.allow_delete) {
-                if ($('.deletebtn').is(':hidden')) {
-                    $('.deletebtn').show();
+                if ($('.chroma-control-bar').is(':hidden')) {
+                    $('.chroma-control-bar').show();
                 }
                 $('.chroma-control-bar')
                     .find('.deletebtn')
@@ -248,9 +248,8 @@ function saveImage(cb) {
 }
 
 $('.backgroundPreview').on('click', function () {
-    if ($('.takeChroma').is(':hidden')) {
-        $('.takeChroma').show();
-        $('.reloadPage').show();
+    if ($('.chroma-control-bar').is(':hidden')) {
+        $('.chroma-control-bar').show();
         $('.chromaNote').empty();
         $('.chromaNote').hide();
     }
@@ -263,8 +262,8 @@ $('.takeChroma, .newchroma').on('click', function (e) {
     const chromaInfo = i18n('chromaInfoAfter');
 
     photoBooth.thrill('chroma');
-    if ($('.takeChroma').is(':visible')) {
-        $('.takeChroma').hide();
+    if ($('.chroma-control-bar').is(':visible')) {
+        $('.chroma-control-bar').hide();
         $('.backgrounds').hide();
 
         setTimeout(() => {

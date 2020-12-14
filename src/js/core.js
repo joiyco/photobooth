@@ -349,7 +349,6 @@ const photoBooth = (function () {
         if (config.dev) {
             console.log(photoStyle);
         }
-
         $('#counter').empty();
         $('.cheese').empty();
 
@@ -366,6 +365,9 @@ const photoBooth = (function () {
                 .appendTo('.cheese');
         }
 
+        if (config.preview_mode === 'gphoto') {
+            api.stopPreviewVideo();
+        }
         if (config.preview_mode === 'device_cam' && config.previewCamTakesPic && !api.stream && !config.dev) {
             console.log('No preview by device cam available!');
 
