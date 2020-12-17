@@ -191,7 +191,7 @@ function saveImage(cb) {
         function (data) {
             takingPic = false;
             needsReload = true;
-           if ($('.chroma-control-bar').is(':hidden')) {
+            if ($('.chroma-control-bar').is(':hidden')) {
                 $('.chroma-control-bar').show();
                 $('.takeChroma').hide();
             }
@@ -252,6 +252,7 @@ function saveImage(cb) {
 $('.backgroundPreview').on('click', function () {
     if ($('.chroma-control-bar').is(':hidden')) {
         $('.chroma-control-bar').show();
+        $('.deletebtn').hide();
         $('.chromaNote').empty();
         $('.chromaNote').hide();
     }
